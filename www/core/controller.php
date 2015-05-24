@@ -24,8 +24,8 @@ abstract class controller
         $this->controller_name = $controller;
         if(!$this->check_auth = $this->checkAuth()) {
             if($action != 'index' || $controller != 'index_controller') {
-                header('Location: ' . SITE_DIR);
-                exit;
+                //header('Location: ' . SITE_DIR);
+               // exit;
             }
         };
         if($this->check_auth) {
@@ -39,7 +39,6 @@ abstract class controller
     protected function view($template)
     {
         $this->render('log', registry::get('log'));
-        require_once(ROOT_DIR . 'classes' . DS . 'simple_html_dom_class.php');
         $template_file = ROOT_DIR . 'templates' . DS . $template . '.php';
         if(!file_exists($template_file)) {
             throw new Exception('cannot find template in ' . $template_file);
@@ -56,118 +55,7 @@ abstract class controller
             require_once(!$this->header ? ROOT_DIR . 'templates' . DS . 'header.php' : ROOT_DIR . 'templates' . DS . $this->header . '.php');
         }
         if($template_file !== false) {
-            ob_start();
             require_once($template_file);
-            $tplContent =  ob_get_clean();
-            $html = str_get_html($tplContent);
-            $content = $html->root;
-            $elements = $content->find('[data-element]');
-            $permissions = $this->model('users')->getUserElements(registry::get('user')['user_group_id']);
-            foreach($elements as $k => $element) {
-                $key = $element->attr['data-element'];
-                if($permissions[$key]['value'] === null) {
-                    switch($key) {
-                        case "edit_btn":
-                            if (registry::get('page_permission') < 2) {
-                                $element->disabled = true;
-                            }
-                            break;
-                        case "delete_btn":
-                        case "create_btn":
-                            if (registry::get('page_permission') < 3) {
-                                $element->disabled = true;
-                            }
-                            break;
-                    }
-                }
-                $permission = $permissions[$key]['value'] > registry::get('page_permission') ? registry::get('page_permission') : $permissions[$key]['value'];
-                switch($permissions[$key]['type']) {
-                    case "1":
-                        switch($key) {
-                            case "edit_btn":
-                                if ($permission < 2) {
-                                    $element->disabled = true;
-                                }
-                                break;
-                            case "create_btn":
-                            case "delete_btn":
-                                if ($permission < 3) {
-                                    $element->disabled = true;
-                                }
-                                break;
-                            default:
-                                switch ($permission) {
-                                    case false:
-                                        $element->outertext = '';
-                                        break;
-                                    case '1':
-                                        if ($inputs = $element->find('input')) {
-                                            foreach($inputs as $input) {
-                                                $input->disabled = true;
-                                            }
-                                        } elseif ($selects = $element->find('select')) {
-                                            foreach($selects as $select) {
-                                                $select->disabled = true;
-                                            }
-                                        } elseif ($textareas = $element->find('textarea')) {
-                                            foreach($textareas as $textarea) {
-                                                $textarea->readonly = true;
-                                            }
-                                        }
-                                        break;
-                                }
-                                break;
-                        }
-                        break;
-                    case '2':
-                        switch ($permission) {
-                            case false:
-                                $element->outertext = '';
-                                foreach($content->find('[data-element-tab=' . $key . ']') as $tab) {
-                                    $tab->outertext = '';
-                                }
-                                break;
-                            case '1':
-                                foreach($element->find('[data-element]') as $tab_element) {
-                                    $tab_element_key = $tab_element->attr['data-element'] ;
-                                    if ($inputs = $tab_element->find('input')) {
-                                        foreach($inputs as $input) {
-                                            $input->disabled = true;
-                                        }
-                                    } elseif ($selects = $tab_element->find('select')) {
-                                        foreach($selects as $select) {
-                                            $select->disabled = true;
-                                        }
-                                    } elseif ($textareas = $tab_element->find('textarea')) {
-                                        foreach($textareas as $textarea) {
-                                            $textarea->readonly = true;
-                                        }
-                                    }
-                                    switch($tab_element_key) {
-                                        case "edit_btn":
-                                            $tab_element->disabled = true;
-                                            break;
-                                        case "delete_btn":
-                                        case "create_btn":
-                                            $tab_element->disabled = true;
-                                            break;
-                                    }
-                                }
-                                break;
-                            case '2':
-                                foreach($element->find('[data-element=create_btn]') as $create_btn) {
-                                    $create_btn->disabled = true;
-                                }
-                                foreach($element->find('[data-element=delete_btn]') as $create_btn) {
-                                    $create_btn->disabled = true;
-                                }
-                                break;
-                        }
-                        break;
-                }
-
-            }
-            echo $content;
         }
         if($this->footer !== false) {
             require_once(!$this->footer ? ROOT_DIR . 'templates' . DS . 'footer.php' : ROOT_DIR . 'templates' . DS . $this->footer . '.php');

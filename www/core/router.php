@@ -21,12 +21,22 @@ if(isset($_GET['route'])) {
     $controller = 'index';
     $action = 'index';
 }
+
+/////
+if(DEVELOPMENT_MODE) {
+    $arr = explode('.', $_SERVER['HTTP_HOST']);
+}
+/////
 $route_parts[0] = $controller;
 $route_parts[1] = $action;
 registry::set('route_parts', $route_parts);
 $class_name = $controller . '_controller';
 if(!file_exists(ROOT_DIR . 'controllers' . DS . $class_name . '.php')) {
-    $class_name = 'four_o_four_controller';
+    $class_name = 'default_controller';
+}
+if(DEVELOPMENT_MODE && $arr[0] != 'dev') {
+    $class_name = 'default_controller';
+    $action = 'dev';
 }
 registry::set('controller', $class_name);
 $controller = new $class_name($class_name, $action);
@@ -38,6 +48,9 @@ if(isset($_REQUEST['ajax'])) {
     if(is_callable($controller->$ajax_action())) {
         $controller->$ajax_action();
     }
+}
+if(DEVELOPMENT_MODE && $arr[0] != 'dev') {
+    $action = 'dev';
 }
 if(method_exists($controller ,$action)) {
     registry::set('action', $action);
