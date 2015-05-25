@@ -23,9 +23,7 @@
     <![endif]-->
     <script src="<?php echo SITE_DIR; ?>js/modernizr.custom.js"></script>
     <script src="<?php echo SITE_DIR; ?>js/theme.js"></script>
-
 </head>
-
 <body class="cssAnimate">
 <div class="ct-preloader-container">                                            <!-- Preloader -->
     <div class='ct-preloader'><div><div><div><div><div><div><div><div><div><div></div></div></div></div></div></div></div></div></div></div></div>
