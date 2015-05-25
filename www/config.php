@@ -13,7 +13,7 @@ define('FR_ROOT_DIR', 'path/to/filerun_root' . DS);
 define('IMAGE_DIR', ROOT_DIR . 'agsdocs' . DS . 'images' . DS);
 define('DEVELOPMENT_MODE', true);
 
-define('DB_NAME', 'agstrad_bd');
-define('DB_USER', 'agstrad_bd');
+define('DB_NAME', 'qcop');
+define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 define('DB_HOST', 'localhost');
