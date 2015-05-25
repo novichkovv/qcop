@@ -30,14 +30,14 @@
 
     <script src="<?php echo SITE_DIR; ?>js/main.js"></script>
 
-    <script src="<?php echo SITE_DIR; ?>plugins/ct-mediaSection/js/jquery.stellar.min.js"></script>
-    <script src="<?php echo SITE_DIR; ?>plugins/ct-mediaSection/js/init.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/stellar.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/init.js"></script>
 
-    <script src="<?php echo SITE_DIR; ?>plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="<?php echo SITE_DIR; ?>plugins/magnific-popup/init.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/magnific-popup.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/magnific-popup-init.js"></script>
 
-    <script src="<?php echo SITE_DIR; ?>plugins/slick/slick.min.js"></script>
-    <script src="<?php echo SITE_DIR; ?>plugins/slick/init.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/slick.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/slick-init.js"></script>
     <script src="<?php echo SITE_DIR; ?>js/demo.js"></script>
     <script type="text/javascript">
         $('head').append('<link rel="stylesheet" type="text/css" href="css/demo.css">');

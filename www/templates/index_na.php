@@ -2,14 +2,14 @@
     <div class="item" data-bg="<?php echo SITE_DIR; ?>images/demo-content/cars/bg-02.jpg">
         <div class="item-inner">
             <div class="ct-slick-image">
-                <img class="animated" src="<?php echo SITE_DIR; ?>images/demo-content/cars/slideImage-01.png" data-fx="bounceInLeft" data-time="50">
+                <img class="animated" src="<?php echo SITE_DIR; ?>images/main/banner-3.png" data-fx="bounceInLeft" data-time="50">
             </div>
             <div class="ct-slick-content">
-                <h2 class="ct-fw-lighter animated" data-fx="bounceInDown" data-time="600"><small>are you looking</small></h2>
-                <h2 class="ct-fw-900 text-uppercase ct-u-marginBoth10 animated" data-fx="bounceInDown" data-time="850">for a cool car?</h2>
-                <p class="ct-u-marginBottom20 animated" data-fx="bounceInDown" data-time="600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed libero orci, porta vitae lectus sed, placerat blandit leo. Pellentesque facilisis, mi ut tempor tempor, niselim, mauris phaellis cetimania.</p>
-                <a href="rent-item.html" class="btn btn-motive animated" data-fx="bounceInDown" data-time="1350"><span>Rent a sedan</span></a>
-                <a href="contact.html" class="btn btn-graydarker animated" data-fx="bounceInDown" data-time="1100"><span>Contact Us</span></a>
+                <h2 class="ct-fw-lighter animated" data-fx="bounceInDown" data-time="600"><small>Вы ищете</small></h2>
+                <h2 class="ct-fw-900 text-uppercase ct-u-marginBoth10 animated" data-fx="bounceInDown" data-time="850">идеальный квадрокоптер?</h2>
+                <p class="ct-u-marginBottom20 animated" data-fx="bounceInDown" data-time="600">Здесь вся информация.</p>
+                <a href="rent-item.html" class="btn btn-motive animated" data-fx="bounceInDown" data-time="1350"><span>Выбрать</span></a>
+                <a href="contact.html" class="btn btn-graydarker animated" data-fx="bounceInDown" data-time="1100"><span>Узнать</span></a>
             </div>
         </div>
     </div>
@@ -89,6 +89,51 @@
         </div>
     </div>
 </div>
+<section class="ct-mediaSection ct-mediaSection--desktop ct-u-paddingTop20" data-type="parallax" data-stellar-background-ratio="0.2" data-bg-image="./assets/images/demo-content/cars/bg-05.jpg" data-bg-image-mobile="./assets/images/demo-content/cars/bg-05-mobile.jpg">
+    <div class="ct-mediaSection-inner ct-mediaSection-inner--bottom ct-u-paddingTop200">
+        <div class="container">
+            <h2 class="text-center ct-fw-lighter ct-u-hr ct-u-hr--wide">rent now</h2>
+
+            <div class="row ct-u-paddingTop20">
+                <div class="col-md-6 ct-u-paddingBottom30">
+                    <a href="rent-item.html">
+                        <figure class="ct-figureBox">
+                            <img src="<?php echo SITE_DIR; ?>images/main/black.jpg" alt="">
+                            <figcaption>
+                                <h2 class="ct-figureBox-header"><small>Rent a <span>sports car</span><i class="ct-figureBox-icon fa fa-chevron-right"></i></small></h2>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </div>
+                <div class="col-md-6 ct-u-paddingBottom30">
+                    <a href="rent-item.html">
+                        <figure class="ct-figureBox">
+                            <img src="./assets/images/demo-content/cars/sectionImage-04.jpg" alt="">
+                            <figcaption>
+                                <h2 class="ct-figureBox-header"><small>Rent a <span>sedan</span><i class="ct-figureBox-icon fa fa-chevron-right"></i></small></h2>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </div>
+                <div class="col-sm-12 ct-u-paddingBottom50">
+                    <a href="rent-item.html">
+                        <figure class="ct-figureBox">
+                            <img src="./assets/images/demo-content/cars/rent-01.jpg" alt="">
+                            <figcaption>
+                                <h2 class="ct-figureBox-header"><small>Rent a <span>luxury limousine</span><i class="ct-figureBox-icon fa fa-chevron-right"></i></small></h2>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-sm-offset-3 ct-u-paddingBottom100">
+                    <a href="rent-page-variation-2.html" class="btn btn-lg btn-wide btn-motive"><span>Show All Car Types</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 <section class="ct-u-marginTop90 ct-u-paddingBottom10">
     <div class="container">
