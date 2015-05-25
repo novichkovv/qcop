@@ -45,7 +45,6 @@
 
         <div class="navbar-header">
             <a class="ct-logoDark" href="index.html"><img src="<?php echo SITE_DIR; ?>images/qcop_logo_small.png" alt=""/></a>
-            <a class="ct-logoWhite" href="index.html"><img src="<?php echo SITE_DIR; ?>images/demo-content/logo2.png" alt=""/></a>
         </div>
 
         <div class="container">
@@ -57,7 +56,7 @@
                         <div class="ct-navbar-search">
                             <form role="form">
                                 <div class="form-group  ct-input--type2">
-                                    <input id="searchM" required="" type="text" name="field[]" placeholder="Search website..." class="form-control">
+                                    <input id="searchM" required="" type="text" name="field[]" placeholder="Поиск..." class="form-control">
                                     <label for="searchM"><span>Search</span></label>
                                     <button class="ct-navbar-search-button" type="submit">
                                         <i class="fa fa-search fa-fw"></i>
@@ -66,16 +65,16 @@
                             </form>
                         </div>
                     </div>
-                    <div class="ct-langPicker">
-                        <div class="ct-langPicker-content">
-                            <a href="#"><img src="<?php echo SITE_DIR; ?>images/demo-content/flag-01.jpg" alt=""/></a>
-                            <ul class="ct-langPicker-list">
-                                <li><a href="#">English <img src="<?php echo SITE_DIR; ?>images/demo-content/flag-01.jpg" alt=""/></a></li>
-                                <li><a href="#">Español <img src="<?php echo SITE_DIR; ?>images/demo-content/flag-03.jpg" alt=""/></a></li>
-                                <li><a href="#">Italiano <img src="<?php echo SITE_DIR; ?>images/demo-content/flag-02.jpg" alt=""/></a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- Flags -->
+<!--                    <div class="ct-langPicker">-->
+<!--                        <div class="ct-langPicker-content">-->
+<!--                            <a href="#"><img src="--><?php //echo SITE_DIR; ?><!--images/demo-content/flag-01.jpg" alt=""/></a>-->
+<!--                            <ul class="ct-langPicker-list">-->
+<!--                                <li><a href="#">English <img src="--><?php //echo SITE_DIR; ?><!--images/demo-content/flag-01.jpg" alt=""/></a></li>-->
+<!--                                <li><a href="#">Español <img src="--><?php //echo SITE_DIR; ?><!--images/demo-content/flag-03.jpg" alt=""/></a></li>-->
+<!--                                <li><a href="#">Italiano <img src="--><?php //echo SITE_DIR; ?><!--images/demo-content/flag-02.jpg" alt=""/></a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div> <!-- Flags -->
                 </div>
 
                 <button type="button" class="navbar-toggle">
@@ -88,12 +87,12 @@
 
             <ul class="nav navbar-nav ct-navbar--fadeIn">
                 <!--=========================================================================-->
-                <li class="active"><a href="index.html"><div class="ct-textEffect"><span data-content="Home">Home</span></div></a></li>
+                <li class="active"><a href="index.html"><div class="ct-textEffect"><span data-content="Home">Главная</span></div></a></li>
                 <!--=========================================================================-->
-                <li class="dropdown"><a href="about.html"><div class="ct-textEffect"><span data-content="About Us">About Us</span></div></a>
+                <li class="dropdown"><a href="about.html"><div class="ct-textEffect"><span data-content="About Us">О нас</span></div></a>
                     <ul class="dropdown-menu">
-                        <li><a href="about.html"><span>About us</span></a></li>
-                        <li><a href="gallery.html"><span>Our gallery</span></a></li>
+                        <li><a href="about.html"><span>О нас</span></a></li>
+                        <li><a href="gallery.html"><span>Галерея</span></a></li>
                     </ul>
                 </li>
                 <!--=========================================================================-->
