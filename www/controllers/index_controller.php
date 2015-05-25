@@ -11,4 +11,9 @@ class index_controller extends controller
     {
 
     }
+
+    public function index_na()
+    {
+        $this->view('index_na');
+    }
 }

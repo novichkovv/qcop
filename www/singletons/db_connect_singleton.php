@@ -21,6 +21,7 @@ class db_connect_singleton
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->pdo->setAttribute(PDO::ATTR_ORACLE_NULLS ,PDO::NULL_TO_STRING);
         $this->pdo->exec("SET NAMES utf8");
+        $this->pdo->exec("SET sql_mode = ''");
     }
 
     public static function getInstance($db, $db_host = null, $db_user = null, $db_password = null)
