@@ -9,3 +9,5 @@ mail_url VARCHAR (255) NOT NULL,
 used TINYINT NOT NULL,
 create_date DATETIME NOT NULL
 )ENGINE=MyISAM;
+
+ALTER TABLE user_base ADD gender TINYINT NOT NULL AFTER user_surname;

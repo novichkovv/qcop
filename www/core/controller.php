@@ -22,18 +22,11 @@ abstract class controller
     {
         registry::set('log', array());
         $this->controller_name = $controller;
-        if(!$this->check_auth = $this->checkAuth()) {
-            if($action != 'index' || $controller != 'index_controller') {
-                //header('Location: ' . SITE_DIR);
-               // exit;
-            }
-        };
+        $this->check_auth = $this->checkAuth();
         if($this->check_auth) {
             $this->sidebar();
         }
         $this->action_name = $action . ($this->check_auth ? '_na' : '');
-//        $words = $this->multilingual(registry::get('language'));
-//        $this->render('words', $words);
     }
 
     protected function view($template)

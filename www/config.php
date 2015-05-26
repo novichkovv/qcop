@@ -9,7 +9,7 @@ define('ROOT_DIR', realpath($_SERVER['DOCUMENT_ROOT']) . DS);
 define('CORE_DIR', realpath($_SERVER['DOCUMENT_ROOT']) . DS . 'core' . DS);
 define('SITE_DIR', 'http://' . str_replace('http://', '', $_SERVER['HTTP_HOST'] . '/'));
 define('TEMPLATE_DIR', ROOT_DIR . 'templates' . DS);
-define('FR_ROOT_DIR', 'path/to/filerun_root' . DS);
+define('LIBS_DIR', ROOT_DIR . 'libs' . DS);
 define('IMAGE_DIR', ROOT_DIR . 'agsdocs' . DS . 'images' . DS);
 define('DEVELOPMENT_MODE', true);
 
