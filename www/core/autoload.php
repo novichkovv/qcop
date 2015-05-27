@@ -19,10 +19,15 @@ function autoload($class_name)
         $n = array_pop($exp_arr);
         $folder = $n . ($n[strlen($n) - 1] == 's' ? 'es' : 's');
     }
+    switch($folder) {
+        case "controllers":
+        case "templates":
+            $class_file = ROOT_DIR . $folder . DS . $class_name . '.php'
+    }
     if (file_exists(ROOT_DIR . $folder . DS . $class_name . '.php')) {
         require_once(ROOT_DIR . $folder . DS . $class_name . '.php');
     } else {
-        throw new Exception('Class file ' . $class_name . ' ' . ROOT_DIR . $folder . DS . $class_name . '.php' . ' not exists');
+        throw new Exception('Class file ' . $class_name . ' ' . ROOT_DIR . PROJECT . DS . $folder . DS . $class_name . '.php' . ' not exists');
     }
 }
 
