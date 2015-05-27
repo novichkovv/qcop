@@ -31,10 +31,10 @@ $route_parts[0] = $controller;
 $route_parts[1] = $action;
 registry::set('route_parts', $route_parts);
 $class_name = $controller . '_controller';
-if(!file_exists(ROOT_DIR . 'controllers' . DS . $class_name . '.php')) {
+if(!file_exists(ROOT_DIR . 'controllers' . DS . PROJECT . DS . $class_name . '.php')) {
     $class_name = 'default_controller';
 }
-if(DEVELOPMENT_MODE && $arr[0] != 'dev') {
+if(DEVELOPMENT_MODE && $arr[0] == 'qcop') {
     $class_name = 'default_controller';
     $action = 'dev';
 }
@@ -49,9 +49,10 @@ if(isset($_REQUEST['ajax'])) {
         $controller->$ajax_action();
     }
 }
-if(DEVELOPMENT_MODE && $arr[0] != 'dev') {
+if(DEVELOPMENT_MODE && $arr[0] == 'qcop') {
     $action = 'dev';
 }
+
 if(method_exists($controller ,$action)) {
     registry::set('action', $action);
     $controller->$action();

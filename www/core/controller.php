@@ -32,7 +32,7 @@ abstract class controller
     protected function view($template)
     {
         $this->render('log', registry::get('log'));
-        $template_file = ROOT_DIR . 'templates' . DS . $template . '.php';
+        $template_file = ROOT_DIR . 'templates' . DS . PROJECT . DS . $template . '.php';
         if(!file_exists($template_file)) {
             throw new Exception('cannot find template in ' . $template_file);
         }
@@ -41,27 +41,30 @@ abstract class controller
             $$k = $v;
         }
         if($this->system_header !== false) {
-            require_once(!$this->system_header ? ROOT_DIR . 'templates' . DS . 'system_header.php' : ROOT_DIR . 'templates' . DS . $this->system_header . '.php');
+            require_once(!$this->system_header ? ROOT_DIR . 'templates' . DS . PROJECT . DS . 'system_header.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->system_header . '.php');
         }
 
         if($this->header !== false) {
-            require_once(!$this->header ? ROOT_DIR . 'templates' . DS . 'header.php' : ROOT_DIR . 'templates' . DS . $this->header . '.php');
+            require_once(!$this->header ? ROOT_DIR . 'templates' . DS . PROJECT . DS . 'header.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->header . '.php');
+        }
+        if($this->sidebar !== false) {
+            require_once(!$this->header ? ROOT_DIR . 'templates' . DS . PROJECT . DS . 'sidebar.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->sidebar() . '.php');
         }
         if($template_file !== false) {
             require_once($template_file);
         }
         if($this->footer !== false) {
-            require_once(!$this->footer ? ROOT_DIR . 'templates' . DS . 'footer.php' : ROOT_DIR . 'templates' . DS . $this->footer . '.php');
+            require_once(!$this->footer ? ROOT_DIR . 'templates' . DS . PROJECT . DS . 'footer.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->footer . '.php');
         }
         if($this->system_footer !== false) {
-            require_once(!$this->system_footer ? ROOT_DIR . 'templates' . DS . 'system_footer.php' : ROOT_DIR . 'templates' . DS . $this->system_footer . '.php');
+            require_once(!$this->system_footer ? ROOT_DIR . 'templates' . DS . PROJECT . DS . 'system_footer.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->system_footer . '.php');
         }
     }
 
     protected function view_only($template)
     {
         $this->render('log', registry::get('log'));
-        $template_file = ROOT_DIR . 'templates' . DS . $template . '.php';
+        $template_file = ROOT_DIR . 'templates' . DS . PROJECT . DS . $template . '.php';
         if(!file_exists($template_file)) {
             throw new Exception('cannot find template in ' . $template_file);
         }

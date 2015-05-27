@@ -23,11 +23,13 @@ function autoload($class_name)
         case "controllers":
         case "templates":
             $class_file = ROOT_DIR . $folder . DS . PROJECT . DS . $class_name . '.php';
+            break;
         default:
-            $class_file = ROOT_DIR . $folder . DS . PROJECT . DS . $class_name . '.php';
+            $class_file = ROOT_DIR . $folder . DS . $class_name . '.php';
+            break;
     }
-    if (file_exists(ROOT_DIR . $folder . DS . $class_name . '.php')) {
-        require_once(ROOT_DIR . $folder . DS . $class_name . '.php');
+    if (file_exists($class_file)) {
+        require_once($class_file);
     }
 }
 spl_autoload_register('autoload');
