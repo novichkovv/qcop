@@ -21,9 +21,6 @@ function autoload($class_name)
     }
     if (file_exists(ROOT_DIR . $folder . DS . $class_name . '.php')) {
         require_once(ROOT_DIR . $folder . DS . $class_name . '.php');
-    } else {
-        throw new Exception('Class file ' . $class_name . ' ' . ROOT_DIR . $folder . DS . $class_name . '.php' . ' not exists');
     }
 }
-
 spl_autoload_register('autoload');
