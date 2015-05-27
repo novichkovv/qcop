@@ -9,7 +9,6 @@ class index_controller extends controller
 {
     public function index()
     {
-
     }
 
     public function index_na()
