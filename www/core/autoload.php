@@ -22,13 +22,12 @@ function autoload($class_name)
     switch($folder) {
         case "controllers":
         case "templates":
-            $class_file = ROOT_DIR . $folder . DS . $class_name . '.php'
+            $class_file = ROOT_DIR . $folder . DS . PROJECT . DS . $class_name . '.php';
+        default:
+            $class_file = ROOT_DIR . $folder . DS . PROJECT . DS . $class_name . '.php';
     }
     if (file_exists(ROOT_DIR . $folder . DS . $class_name . '.php')) {
         require_once(ROOT_DIR . $folder . DS . $class_name . '.php');
-    } else {
-        throw new Exception('Class file ' . $class_name . ' ' . ROOT_DIR . PROJECT . DS . $folder . DS . $class_name . '.php' . ' not exists');
     }
 }
-
 spl_autoload_register('autoload');
