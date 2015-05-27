@@ -14,7 +14,6 @@ class index_controller extends controller
 
     public function index_na()
     {
-        tools_class::mail('Test', 'Test', 'novichkovv@bk.ru');
         $this->view('index_na');
     }
 }
