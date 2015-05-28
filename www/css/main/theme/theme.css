@@ -9662,7 +9662,7 @@ p {
 .ct-progressBar--inverse .progress {
     background: #555555;
 }
-img,
+/*img,*/
 figure {
     max-width: 100%;
 }
@@ -11647,7 +11647,7 @@ label.disabled {
     padding: 15px;
 }
 .ct-product img {
-    width: 100%;
+    max-width: 300px;
 }
 .ct-product:after {
     content: "";

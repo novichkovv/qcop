@@ -23,13 +23,15 @@
     <script src="<?php echo SITE_DIR; ?>plugins/REM-unit-polyfill/js/rem.min.js"></script>
     <![endif]-->
     <script src="<?php echo SITE_DIR; ?>js/modernizr.custom.js"></script>
-    <script src="<?php echo SITE_DIR; ?>js/theme.js"></script>
     <!-- JavaScripts -->
-    <script src="<?php echo SITE_DIR; ?>js/jquery.min.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/libs/jquery.min.js"></script>
     <script src="<?php echo SITE_DIR; ?>js/bootstrap.min.js"></script>
     <script src="<?php echo SITE_DIR; ?>js/dependencies.js"></script>
-
-    <script src="<?php echo SITE_DIR; ?>js/main.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/libs/selectize.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/libs/boostrap-slider.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/libs/jquery.isotope.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/libs/imagesloaded.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/libs/products.js"></script>
 
     <script src="<?php echo SITE_DIR; ?>js/stellar.js"></script>
     <script src="<?php echo SITE_DIR; ?>js/init.js"></script>
@@ -39,8 +41,11 @@
 
     <script src="<?php echo SITE_DIR; ?>js/slick.js"></script>
     <script src="<?php echo SITE_DIR; ?>js/slick-init.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/theme.js"></script>
     <script src="<?php echo SITE_DIR; ?>js/demo.js"></script>
     <script src="<?php echo SITE_DIR; ?>js/script.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/main.js"></script>
+
     <script type="text/javascript">
         $('head').append('<link rel="stylesheet" type="text/css" href="css/demo.css">');
         $('head').append('<link rel="stylesheet" type="text/css" href="generator.php">');
