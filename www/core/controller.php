@@ -100,7 +100,7 @@ abstract class controller
 
     public function four_o_four() {
         $this->view('404');
-    }  
+    }
 
     /**
      * @return bool
@@ -122,7 +122,7 @@ abstract class controller
                 registry::set('user', $user);
                 return true;
             } else {
-                return false;
+                return false; 
             }
         } else {
             return false;
