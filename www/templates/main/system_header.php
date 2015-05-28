@@ -14,8 +14,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="<?php echo SITE_DIR; ?>images/demo-content/cars/icon.ico">
     <title>Qcop.ru - Квадрокоптеры</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo SITE_DIR; ?>css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo SITE_DIR; ?>css/theme.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo SITE_DIR; ?>css/main/theme/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo SITE_DIR; ?>css/main/theme/theme.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo SITE_DIR; ?>css/main/style.css">
     <!--[if lt IE 9]>
     <script src="<?php echo SITE_DIR; ?>bootstrap/js/html5shiv.min.js"></script>
     <script src="<?php echo SITE_DIR; ?>bootstrap/js/respond.min.js"></script>
@@ -39,6 +40,7 @@
     <script src="<?php echo SITE_DIR; ?>js/slick.js"></script>
     <script src="<?php echo SITE_DIR; ?>js/slick-init.js"></script>
     <script src="<?php echo SITE_DIR; ?>js/demo.js"></script>
+    <script src="<?php echo SITE_DIR; ?>js/script.js"></script>
     <script type="text/javascript">
         $('head').append('<link rel="stylesheet" type="text/css" href="css/demo.css">');
         $('head').append('<link rel="stylesheet" type="text/css" href="generator.php">');

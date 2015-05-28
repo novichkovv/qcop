@@ -1,5 +1,5 @@
 <div class="ct-menuMobile">
-    <div class="ct-menuMobile-logo"><a href="index.html"><img src="<?php echo SITE_DIR; ?>images/demo-content/logo2.png" alt=""/></a></div>
+    <div class="ct-menuMobile-logo"><a href="index.html"><img src="<?php echo SITE_DIR; ?>images/main/qcop_logo_small.png" alt=""/></a></div>
     <ul class="ct-menuMobile-navbar">
         <li class="active"><a href="index.html"><span>Home</span></a></li>
         <li><a href="about.html"><span>About us</span></a></li>
@@ -44,7 +44,7 @@
     <nav class="navbar navbar-default ct-navbar ct-shadow ct-shadow--type1">
 
         <div class="navbar-header">
-            <a class="ct-logoDark" href="index.html"><img src="<?php echo SITE_DIR; ?>images/qcop_logo_small.png" alt=""/></a>
+            <a class="ct-logoDark" href="index.html"><img src="<?php echo SITE_DIR; ?>images/main/qcop_logo_small.png" alt=""/></a>
         </div>
 
         <div class="container">
@@ -144,3 +144,4 @@
 
         </div>
     </nav>
+    <div class="main-content">
