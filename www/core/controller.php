@@ -122,7 +122,7 @@ abstract class controller
                 registry::set('user', $user);
                 return true;
             } else {
-                return false; 
+                return false;
             }
         } else {
             return false;
