@@ -1,9 +1,9 @@
 <div style="height: 100px;" class="hidden-xs"></div>
 <div class="row">
     <div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-4">
-        <section class="panel" style="box-shadow: 0 0 3px;">
+        <section class="panel" style="border: 1px solid #39435C;">
             <header class="panel-heading text-center" style="background-color: #39435C;">
-                <img src="<?php echo SITE_DIR; ?>images/main/qcop_logo_small_wite.png">
+                <img src="<?php echo SITE_DIR; ?>images/main/qcop_logo_small_wite.png" id="authorization-logo">
             </header>
             <div class="panel-body">
                 <form class="form-horizontal" role="form">
