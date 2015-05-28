@@ -100,7 +100,7 @@ abstract class controller
 
     public function four_o_four() {
         $this->view('404');
-    }
+    }  
 
     /**
      * @return bool
