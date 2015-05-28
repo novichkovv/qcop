@@ -2833,8 +2833,8 @@ Copyright (c) 2014 Daniel Eden
  * -------------------------- */
 @font-face {
     font-family: 'FontAwesome';
-    src: url('../fonts/awesome/fonts/fontawesome-webfont.eot?v=4.2.0');
-    src: url('../fonts/awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'), url('../fonts/awesome/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'), url('../fonts/awesome/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'), url('../fonts/awesome/fonts/awesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
+    src: url('../../../fonts/awesome/fonts/fontawesome-webfont.eot?v=4.2.0');
+    src: url('../../../fonts/awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'), url('../../../fonts/awesome/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'), url('../../../fonts/awesome/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'), url('../fonts/awesome/fonts/awesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -9972,7 +9972,7 @@ body.boxed .ct-topBar + .ct-menuMobile + .ct-pageWrapper nav.navbar,
     background: no-repeat center center;
 }
 .ct-shadow.ct-shadow--type1:after {
-    background-image: url(../images/shadow_1.png);
+    background-image: url(../../../images/shadow_1.png);
 }
 .ct-shadow.ct-shadow--type2:after {
     background-image: url(../images/shadow_2.png);

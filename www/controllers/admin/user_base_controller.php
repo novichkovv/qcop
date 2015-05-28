@@ -64,7 +64,7 @@ class user_base_controller extends controller
                 }
             }
             $this->model('user_base')->insert(array('id' => $user['id'], 'used' => 1));
-            sleep(3);
+            sleep(2);
         }
 
 
