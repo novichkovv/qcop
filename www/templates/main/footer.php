@@ -69,7 +69,7 @@
     </div>
     <div class="ct-footer-meta ct-u-sectionMotive ct-u-marginTop70">
         <div class="container">
-            <div class="ct-footer-copyright">COPYRIGHT © <a href="http://outsourcing.createit.pl/">qcop.ru</a> 2015</div>
+            <div class="ct-footer-copyright">© <a href="http://outsourcing.createit.pl/">qcop.ru</a> 2015</div>
             <ul class="ct-socials">
                 <li><a data-toggle="tooltip" data-placement="top" title="flickr" href="#"><i class="fa fa-flickr"></i></a></li>
                 <li><a data-toggle="tooltip" data-placement="top" title="instagram" href="#"><i class="fa fa-instagram"></i></a></li>

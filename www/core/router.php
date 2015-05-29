@@ -6,7 +6,9 @@
  * Time: 19:34
  */
 if(isset($_GET['route'])) {
-    $parts = explode('?', trim($_GET['route'], '\\/'));
+    $route = trim($_GET['route'], '\\/');
+    registry::set('route', $route);
+    $parts = explode('?', $route);
     $arr = explode('/', $parts[0]);
     if(count($arr) === 1) {
         $controller = $arr[0];
