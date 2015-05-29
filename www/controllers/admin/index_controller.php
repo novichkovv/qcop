@@ -13,9 +13,9 @@ class index_controller extends controller
 
     public function index_na()
     {
-        $this->sidebar = false;
-        $this->header = false;
-        $this->footer = false;
-        $this->view('index_na');
+        //$this->sidebar = false;
+        //$this->header = false;
+        //$this->footer = false;
+        $this->view('index');
     }
 }
