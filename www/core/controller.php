@@ -15,11 +15,24 @@ abstract class controller
     protected $system_footer;
     protected $controller_name;
     protected $action_name;
+    protected $sidebar;
     public  $check_auth;
     protected $scripts = array();
 
     function __construct($controller, $action)
     {
+        if(isset($_POST['log_out_btn'])) {
+            $this->logOut();
+            header('Location: ' . SITE_DIR);
+            exit;
+        }
+        if(isset($_POST['login_btn'])) {
+            if($this->auth($_POST['email'], md5($_POST['password']), $_POST['remember'])) {
+                header('Location: ' . SITE_DIR);
+            } else {
+                $this->render('error', true);
+            }
+        }
         registry::set('log', array());
         $this->controller_name = $controller;
         $this->check_auth = $this->checkAuth();
@@ -108,16 +121,11 @@ abstract class controller
     protected function checkAuth()
     {
         if($_SESSION['auth']) {
-            if($user = $this->model('user_management')->getByFields(array(
-                'user_id' => $_SESSION['user']['user_id'],
-                'user_name' => $_SESSION['user']['user_name'],
-                'user_passw' => $_SESSION['user']['user_passw']
+            if($user = $this->model('users')->getByFields(array(
+                'id' => $_SESSION['user']['id'],
+                'email' => $_SESSION['user']['email'],
+                'user_password' => $_SESSION['user']['user_password']
             ))) {
-                $user['fi_user_name'] = $_SESSION['FI_Username'];
-                $user['fi_user_group'] = $_SESSION['FI_UserGroup'];
-                $user['fi_user_avatar'] = $_SESSION['FI_UserAvatar'];
-                $user['fi_user_id'] = $_SESSION['FI_UserId'];
-                $user['fi_user_password'] = $_SESSION['FileRun']['PASSWORD'];
                 registry::set('auth', true);
                 registry::set('user', $user);
                 return true;
@@ -130,31 +138,24 @@ abstract class controller
     }
 
     /**
-     * @param string $user
+     * @param string $email
      * @param string $password
      * @param bool $remember
      * @return bool
      */
 
-    protected function auth($user, $password, $remember = false)
+    protected function auth($email, $password, $remember = false)
     {
         if(!$password) return false;
-        if($user = $this->model('user_management')->getByFields(array(
-            'user_name' => $user,
-            'user_passw' => $password
+        if($user = $this->model('users')->getByFields(array(
+            'email' => $email,
+            'user_password' => $password
         ))) {
             if(!$remember) {
-                $_SESSION['user']['user_id'] = $user['user_id'];
-                $_SESSION['user']['user_name'] = $user['user_name'];
-                $_SESSION['user']['user_passw'] = $user['user_passw'];
+                $_SESSION['user']['id'] = $user['id'];
+                $_SESSION['user']['email'] = $user['email'];
+                $_SESSION['user']['user_password'] = $user['user_password'];
                 $_SESSION['auth'] = 1;
-                //////////
-                $_SESSION['FI_Username'] = $user['user_name'];
-                $_SESSION['FI_UserGroup'] = $user['user_group'];
-                $_SESSION['FI_UserAvatar'] = ($user['user_avatar']!="") ? $user['user_avatar'] : "../../assets/admin/layout/img/avatar.png";
-                $_SESSION['FI_UserId'] = $user['user_id'];
-                $_SESSION['FileRun']['username'] = $user['user_name'];
-                $_SESSION['FileRun']['PASSWORD'] = $user['user_passw'];
             }
             return true;
         } else {
@@ -170,65 +171,47 @@ abstract class controller
     {
         unset($_SESSION['user']);
         unset($_SESSION['auth']);
-        unset($_SESSION['FI_Username']);
-        unset($_SESSION['FI_UserGroup']);
-        unset($_SESSION['FI_UserAvatar']);
-        unset($_SESSION['FI_UserId']);
-        unset($_SESSION['FileRun']);
-    }
-
-    /**
-     * @param $lng
-     * @return mixed
-     */
-
-    public function multilingual($lng)
-    {
-        $model = new default_model('multilingual');
-        $row =  $model->getAll();
-        return $row['multilingual_'.$lng];
     }
 
     private function sidebar()
     {
         $system_route = trim($_REQUEST['route'], '/');
-        $tmp = $this->model('system_route_user_group_relations')->getByField('user_group_id', registry::get('user')['user_group_id'], true);
+        $tmp = $this->model('system_routes_user_groups_relations')->getByField('user_group_id', registry::get('user')['user_group_id'], true);
         $permissions = [];
         foreach($tmp as $v) {
-            $permissions[$v['system_route_id']] = $v['relation'];
+            $permissions[$v['system_route_id']] = 1;
         }
         $sidebar = [];
-        $tmp = $this->model('system_route')->getAll('position');
+        $tmp = $this->model('system_routes')->getAll('position');
         $permit_page = false;
         foreach($tmp as $v) {
             if(!$v['parent']) {
                 foreach($v as $key => $val) {
-                    if($permissions[$v['system_route_id']]) {
+                    if($permissions[$v['id']]) {
                         if($v['route'] == $system_route) {
                             $permit_page = true;
-                            registry::set('page_permissions', $permissions[$v['system_route_id']]);
                         }
                         if(!$v['hidden']) {
-                            $sidebar[$v['system_route_id']][$key] = $val;
+                            $sidebar[$v['id']][$key] = $val;
                         }
                     }
                 }
             } else {
                 foreach($v as $key => $val) {
-                    if($permissions[$v['system_route_id']]) {
+                    if($permissions[$v['id']]) {
                         if($v['route'] == $system_route) {
                             $permit_page = true;
-                            registry::set('page_permission', $permissions[$v['system_route_id']]);
+                            registry::set('page_permission', $permissions[$v['id']]);
                         }
                         if(!$v['hidden']) {
-                            $sidebar[$v['parent']]['children'][$v['system_route_id']][$key] = $val;
+                            $sidebar[$v['parent']]['children'][$v['id']][$key] = $val;
                         }
                     }
                 }
             }
         }
         if(!$permit_page) {
-            require_once(TEMPLATE_DIR . 'access_denied.php');
+            $this->view('access_denied');
             exit;
         }
         $this->render('sidebar', $sidebar);

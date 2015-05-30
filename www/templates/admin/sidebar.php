@@ -8,7 +8,7 @@
                 <img src="img/26115.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-                <p>Hello, Jane</p>
+                <p>Привет, <?php echo registry::get('user')['user_name']; ?></p>
 
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -25,28 +25,54 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-            <li class="active">
-                <a href="index.html">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="general.html">
-                    <i class="fa fa-gavel"></i> <span>General</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="basic_form.html">
-                    <i class="fa fa-globe"></i> <span>Basic Elements</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="simple.html">
-                    <i class="fa fa-glass"></i> <span>Simple tables</span>
-                </a>
-            </li>
+            <?php foreach($sidebar as $k => $v): ?>
+                <li <?php if(registry::get('route_parts')[0] == $v['route']) echo 'class="active"' ?>>
+                    <?php if(!$v['children']): ?>
+                        <a href="<?php echo ($v['external'] ? '' : SITE_DIR ) . ($v['route'] ? $v['route'] .'/' : '') ; ?>">
+                    <?php endif; ?>
+                    <?php if($v['children']): ?>
+                        <a href="#" class="expand">
+                    <?php endif; ?>
+<!--                    <a href="--><?php //echo SITE_DIR . $v['route']; ?><!--/">-->
+                        <?php if($v['icon']) echo '<i class="' . $v['icon'] . '"></i>'; ?>
+                        <span><?php echo $v['title']; ?></span>
+                    </a>
+                        <?php if($v['children']): ?>
+                            <ul class="sub-menu">
+                                <?php foreach($v['children'] as $child): ?>
+                                    <li>
+                                        <a href="<?php echo SITE_DIR . $child['route']; ?>/">
+                                            <i class="<?php echo $child['icon']; ?>"></i>
+                                            <?php echo $child['title']; ?>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                </li>
+            <?php endforeach; ?>
+<!--            <li class="active">-->
+<!--                <a href="index.html">-->
+<!--                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="general.html">-->
+<!--                    <i class="fa fa-gavel"></i> <span>General</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!---->
+<!--            <li>-->
+<!--                <a href="basic_form.html">-->
+<!--                    <i class="fa fa-globe"></i> <span>Basic Elements</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!---->
+<!--            <li>-->
+<!--                <a href="simple.html">-->
+<!--                    <i class="fa fa-glass"></i> <span>Simple tables</span>-->
+<!--                </a>-->
+<!--            </li>-->
 
         </ul>
     </section>

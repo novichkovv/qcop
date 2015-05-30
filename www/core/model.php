@@ -183,14 +183,13 @@ class model
         else
             $result = $this->get_row($stm, $fields);
         if($show) {
-            echo $stm->getSQL;
+            echo $stm->getQuery($fields);
         }
         return $result;
     }
 
     /**
      * @param int $id
-     * @param string $field
      * @param bool $show
      * @return bool
      */

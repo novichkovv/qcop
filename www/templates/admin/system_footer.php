@@ -30,23 +30,10 @@
 
 <!-- Director dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo SITE_DIR . 'js/'  . PROJECT;  ?>/theme/Director/dashboard.js" type="text/javascript"></script>
+<script src="<?php echo SITE_DIR; ?>js/script.js" type="text/javascript"></script>
+<script src="<?php echo SITE_DIR . 'js/'  . PROJECT;  ?>/script.js" type="text/javascript"></script>
 
 <!-- Director for demo purposes -->
-<script type="text/javascript">
-    $('input').on('ifChecked', function(event) {
-        // var element = $(this).parent().find('input:checkbox:first');
-        // element.parent().parent().parent().addClass('highlight');
-        $(this).parents('li').addClass("task-done");
-        console.log('ok');
-    });
-    $('input').on('ifUnchecked', function(event) {
-        // var element = $(this).parent().find('input:checkbox:first');
-        // element.parent().parent().parent().removeClass('highlight');
-        $(this).parents('li').removeClass("task-done");
-        console.log('not');
-    });
-
-</script>
 <script>
     $('#noti-box').slimScroll({
         height: '400px',

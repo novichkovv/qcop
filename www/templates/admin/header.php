@@ -1,7 +1,7 @@
 <body class="skin-black">
 <!-- header logo: style can be found in header.less -->
 <header class="header">
-<a href="index.html" class="logo">
+<a href="<?php echo SITE_DIR; ?>" class="logo">
     <img src="<?php echo SITE_DIR; ?>images/main/qcop_logo_small_wite.png" />
 </a>
 <!-- Header Navbar: style can be found in header.less -->
@@ -168,7 +168,7 @@
         <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <i class="fa fa-user"></i>
-                <span>Jane Doe <i class="caret"></i></span>
+                <span><?php echo registry::get('user')['user_name']; ?> <?php echo registry::get('user')['user_surname']; ?> <i class="caret"></i></span>
             </a>
             <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                 <li class="dropdown-header text-center">Account</li>
@@ -202,7 +202,7 @@
                 <li class="divider"></li>
 
                 <li>
-                    <a href="#"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                    <a href="#" id="logout_button"><i class="fa fa-ban fa-fw pull-right"></i> Выйти</a>
                 </li>
             </ul>
         </li>

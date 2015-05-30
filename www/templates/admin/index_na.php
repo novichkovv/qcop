@@ -6,31 +6,31 @@
                 <img src="<?php echo SITE_DIR; ?>images/main/qcop_logo_small_wite.png" id="authorization-logo">
             </header>
             <div class="panel-body">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-md-10 col-md-offset-1">
                             <label for="inputEmail1" class="control-label">Login</label>
-                            <input type="text" name="login" class="form-control" id="inputEmail1" placeholder="Email">
+                            <input type="text" name="email" class="form-control" placeholder="Email">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-10 col-md-offset-1">
                             <label for="inputPassword1" class="control-label">Password</label>
-                            <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
+                            <input type="password" name="password" class="form-control" placeholder="Password">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-1 col-lg-10">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox"> Remember me
+                                    <input type="checkbox" name="remember"> Remember me
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="text-center">
-                            <button type="submit" class="btn btn-danger btn-lg">Sign in</button>
+                            <button type="submit" name="login_btn" class="btn btn-danger btn-lg">Sign in</button>
                         </div>
                     </div>
                 </form>
