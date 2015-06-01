@@ -229,12 +229,12 @@ abstract class controller
         }
         $params['limits'] = isset($_REQUEST['iDisplayStart']) ? $_REQUEST['iDisplayStart'].','.$_REQUEST['iDisplayLength'] : '';
         $params['order'] = $_REQUEST['iSortCol_0'] ? $params['select'][$_REQUEST['iSortCol_0']].($_REQUEST['sSortDir_0'] ? ' '.$_REQUEST['sSortDir_0'] : '') : '';
-        $res = $this->model('default')->getFilteredData($params, 'clients c');
+        $res = $this->model('default')->getFilteredData($params, $params['table']);
         if($print) {
             print_r($res);
         }
         $rows['aaData'] = $res['rows'];
-        $rows['iTotalRecords'] = $this->model('clients')->countByField();
+        $rows['iTotalRecords'] = $this->model(explode(' ', $params['table'])[0])->countByField();
         $rows['iTotalDisplayRecords'] = $res['count'];
         return($rows);
     }

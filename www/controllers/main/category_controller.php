@@ -9,7 +9,7 @@ class category_controller extends controller
 {
     public function index()
     {
-
+        $this->view('category' . DS . 'index');
     }
 
     public function index_na()

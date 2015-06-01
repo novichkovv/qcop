@@ -8,3 +8,27 @@
 .sub-menu {
     display: none;
 }
+.custom-datatable .dataTables_filter{
+    display: none;
+}
+.custom-datatable .datatable-footer {
+    text-align: center;
+}
+.custom-datatable .paginate_button {
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 13px;
+}
+.custom-datatable .paginate_button.current {
+    color: #222;
+    background-color: #eee;
+    border: 1px solid #ccc;
+}
+.custom-datatable .paginate_button:disabled {
+    color: #ccc !important;
+    border: 1px solid #eee;
+}
+.custom-datatable .dataTables_paginate.paging_simple_numbers {
+    margin: 10px;
+}

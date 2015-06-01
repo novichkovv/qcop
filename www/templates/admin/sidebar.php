@@ -5,7 +5,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="img/26115.jpg" class="img-circle" alt="User Image" />
+                <img src="<?php echo SITE_DIR; ?>images/main/empty_avatar_m.png" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
                 <p>Привет, <?php echo registry::get('user')['user_name']; ?></p>

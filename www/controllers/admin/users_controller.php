@@ -18,6 +18,39 @@ class users_controller extends controller
         $this->view('users' . DS . 'list');
     }
 
+    public function index_ajax()
+    {
+        switch($_REQUEST['action']) {
+            case "get_users_table":
+                $params = array();
+                $params['table'] = 'users u';
+                $params['select'] = array(
+                    'u.id',
+                    'u.user_name',
+                    'u.user_surname',
+                    'g.group_name',
+                    'u.email',
+                    'DATE_FORMAT(u.create_date,"%d/%m/%Y")',
+                    'CONCAT("<a href=\"' . SITE_DIR .'users/add/?id=", u.id, "\" class=\"btn btn-default btn-xs\">
+                            <span class=\"fa fa-pencil\"></span>
+                        </a>
+                        <a href=\"#delete_user_modal\" class=\"btn btn-default btn-xs delete_user\" data-id=\"", u.id, "\" data-toggle=\"modal\" role=\"button\">
+                            <span class=\"text-danger fa fa-times\"></span>
+                        </a>")'
+                );
+                $params['join']['user_groups'] = array(
+                    'on' => 'u.user_group_id = g.id',
+                    'as' => 'g',
+                    'left' => true
+                );
+                echo json_encode($this->getDataTable($params));
+                exit;
+                break;
+        }
+
+
+    }
+
     public function add()
     {
         if(isset($_POST['save_user_btn'])) {
